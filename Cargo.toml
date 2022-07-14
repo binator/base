@@ -1,0 +1,38 @@
+[package]
+name = "binator_base"
+authors = ["Stargateur"]
+version = "0.0.0"
+description = "This contains base combinator for binator"
+license = "Zlib"
+repository = "https://github.com/binator/base"
+readme = "readme.md"
+keywords = ["parsing", "combinator", "base"]
+categories = ["parsing"]
+edition = "2021"
+
+include = [
+  "readme.md",
+  "license.md",
+  "Cargo.toml",
+  "rustfmt.toml",
+  "src/**/*.rs",
+]
+
+[features]
+integer_radix = ["num-traits"]
+default = ["integer_radix"]
+
+[dependencies]
+binator_core = { version = "0.0.2", default-features = false }
+binator_utils = "0.0.0"
+
+[dependencies.num-traits]
+version = "0.2"
+optional = true
+
+[dependencies.tracing]
+version = "0.1"
+optional = true
+
+[dev-dependencies]
+binator_context = { git = "https://github.com/binator/context.git" }
